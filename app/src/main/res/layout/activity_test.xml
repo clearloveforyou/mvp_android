@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.test.TestActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/test_event_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试主页面切换，Activity的结束"
+                android:textColor="@color/color_default_tab"
+                android:textSize="@dimen/font_size_16" />
+
+            <TextView
+                android:id="@+id/test_http_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试HTTP"
+                android:textColor="@color/color_default_tab"
+                android:textSize="@dimen/font_size_16" />
+        </LinearLayout>
+    </ScrollView>
+
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>
