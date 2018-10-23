@@ -29,6 +29,7 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.squareup.leakcanary.LeakCanary;
 import com.yxzc.tzl.R;
 import com.yxzc.tzl.base.CatalogParam;
+import com.yxzc.tzl.db.DbManager;
 import com.yxzc.tzl.services.SafeHostnameVerifier;
 import com.yxzc.tzl.services.SafeTrustManager;
 import com.yxzc.tzl.utils.AppUtils;
@@ -108,6 +109,7 @@ public class AppContext extends BaseAppContext {
         initLeakCanary();
         initAppCrash();
         initLogger();
+        initGreenDao();
         initOKGO();
     }
 
@@ -161,6 +163,13 @@ public class AppContext extends BaseAppContext {
         });
         //保存log到文件 /storage/emulated/0
         Logger.addLogAdapter(new DiskLogAdapter());
+    }
+
+    /**
+     * 初始化数据库
+     */
+    private void initGreenDao() {
+        DbManager.getInstance(this);
     }
 
     /**

@@ -17,11 +17,11 @@ import com.yxzc.tzl.beans.CalendarItem;
 import com.yxzc.tzl.beans.FlagEvent;
 import com.yxzc.tzl.beans.TvCategoryItem;
 import com.yxzc.tzl.constants.MainCode;
+import com.yxzc.tzl.db.manager.TestManager;
 import com.yxzc.tzl.ui.main.Main;
 import com.yxzc.tzl.utils.ActivityUtils;
 import com.yxzc.tzl.utils.GlideUtils;
 import com.yxzc.tzl.utils.ObjectUtils;
-import com.yxzc.tzl.utils.ToastUtils;
 import com.yxzc.tzl.widgets.ImageSelectDialog;
 import com.yxzc.tzl.widgets.LoadingDialog;
 
@@ -47,6 +47,8 @@ public class TestActivity extends BaseMVPActivity<TestPresenter> implements Test
     RoundedImageView headPortraitRiv;
     @BindView(R.id.refresh_test)
     SmartRefreshLayout refreshTest;
+    @BindView(R.id.test_db_tv)
+    TextView testDbTv;
 
     private ImageSelectDialog mImageSelectDialog;
 
@@ -177,4 +179,11 @@ public class TestActivity extends BaseMVPActivity<TestPresenter> implements Test
         loadingDialog.showDialog();
     }
 
+    /**
+     * 测试数据库
+     */
+    @OnClick(R.id.test_db_tv)
+    public void onTestDBClicked() {
+        TestManager.saveTest("测试");
+    }
 }

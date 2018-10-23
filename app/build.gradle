@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+
 //产品名
 def PRODUCT_NAME = "hsl"
 //打包时间
@@ -77,6 +79,15 @@ android {
         productFlavors.all { flavor ->
             flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
         }
+    }
+
+    greendao {
+        //数据库的schema版本
+        schemaVersion 1
+        //设置DaoMaster、DaoSession、Dao包名
+        daoPackage 'com.yxzc.tzl.dao'
+        //设置DaoMaster、DaoSession、Dao目录
+        targetGenDir 'src/main/java'
     }
 
     buildTypes {
@@ -168,6 +179,8 @@ dependencies {
     implementation 'com.yanzhenjie:recyclerview-swipe:1.1.4'
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'com.github.yalantis:ucrop:2.2.2-native'
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0'
     // 内存泄漏检测
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
