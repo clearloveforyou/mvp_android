@@ -43,4 +43,10 @@
         <item name="android:windowExitAnimation">@anim/dialog_scale_dismiss</item>
     </style>
 
+    <!--dialog底部弹出动画-->
+    <style name="dialog_translate_anim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_bottom_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_bottom_exit</item>
+    </style>
+
 </resources>

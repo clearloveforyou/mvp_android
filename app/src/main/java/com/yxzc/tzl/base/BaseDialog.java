@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 
@@ -62,19 +63,35 @@ public class BaseDialog extends Dialog {
         window.setDimAmount(alpha);
         window.setAttributes(mLayoutParams);
         if (mLayoutParams != null) {
-            mLayoutParams.height = android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+            // TODO: 2018/10/22  宽高可以不设置
+            mLayoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
+            mLayoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
             mLayoutParams.gravity = gravity;
         }
-        //用于初始化控件
-        initView(context);
+        //用于设置dialog属性
+        initAttribute(window, mLayoutParams);
+        //用于初始化布局、控件
+        initLayout(context);
     }
+
+    /**
+     * 用于设置Dialog的一些属性
+     * 如：位置、偏移量、动画、尺寸等~
+     *
+     * @param window
+     * @param layoutParams
+     */
+    protected void initAttribute(Window window, LayoutParams layoutParams) {
+
+    }
+
 
     /**
      * 用于加载布局，初始化控件
      *
      * @param context
      */
-    protected void initView(Context context) {
+    protected void initLayout(Context context) {
         //重写
     }
 

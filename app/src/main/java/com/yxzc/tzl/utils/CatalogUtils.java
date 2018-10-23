@@ -1,9 +1,11 @@
 package com.yxzc.tzl.utils;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Environment;
 
 import com.orhanobut.logger.Logger;
+import com.yxzc.tzl.application.AppContext;
 import com.yxzc.tzl.base.CatalogParam;
 
 import java.io.File;
@@ -45,10 +47,11 @@ public class CatalogUtils {
 
     /**
      * sd卡目录下，创建应用主目录
+     * 如果sd卡不存在，则在内部存储创建主目录
      * return
      */
     private static File getAppCatalog() {
-        if (SDCardUtils.ExistSDCard()) {
+        if (SDCardUtils.hasSDCard()) {
             //Environment.getExternalStorageDirectory()
             //获取到的路径是: /storage/emulated/0。
             //这是SD卡根路径，6.0后写入需要用户授权。
@@ -57,9 +60,10 @@ public class CatalogUtils {
             Logger.d(Environment.getExternalStorageDirectory());
             return createDirectory(Environment.getExternalStorageDirectory(), catalogParam.getAppDir());
         } else {
-            //Environment.getExternalStoragePublicDirectory(String s): /storage/emulated/0/s
-            // 一些共享文件应该被放置在该目录中
-            return createDirectory(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), catalogParam.getAppDir());
+            //没有外部存储，则建于内部存储
+            // /data/user/0/packname/app_myFile
+            File root = AppContext.getInstance().getDir(catalogParam.getAppDir(), Context.MODE_PRIVATE);
+            return createDirectory(root);
         }
     }
 
@@ -188,6 +192,20 @@ public class CatalogUtils {
      */
     public static File createDirectory(File dir, String dest) {
         File result = new File(dir, File.separator + dest + File.separator);
+        if (!result.exists()) {
+            result.mkdirs();
+        }
+        return result;
+    }
+
+    /**
+     * 创建目录
+     *
+     * @param dir
+     * @return
+     */
+    public static File createDirectory(File dir) {
+        File result = new File(dir, File.separator);
         if (!result.exists()) {
             result.mkdirs();
         }

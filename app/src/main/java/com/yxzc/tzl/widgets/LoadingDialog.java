@@ -2,7 +2,8 @@ package com.yxzc.tzl.widgets;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.yxzc.tzl.R;
 import com.yxzc.tzl.base.BaseDialog;
@@ -30,13 +31,18 @@ public class LoadingDialog extends BaseDialog {
     }
 
     @Override
-    protected void initView(Context context) {
-        View content = mLayoutInflater.inflate(R.layout.dialog_loading_net, null);
+    protected void initAttribute(Window window, WindowManager.LayoutParams layoutParams) {
 //        int width = (int) mContext.getResources().getDimension(R.dimen.spacing_260);
 //        int height = (int) mContext.getResources().getDimension(R.dimen.spacing_160);
 //        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(width, height);
 //        setContentView(content, layoutParams);
+        //触摸dialog之外不消失
         setCanceledOnTouchOutside(false);
+    }
+
+    @Override
+    protected void initLayout(Context context) {
+        View content = mLayoutInflater.inflate(R.layout.dialog_net_loading, null);
         setContentView(content);
     }
 }

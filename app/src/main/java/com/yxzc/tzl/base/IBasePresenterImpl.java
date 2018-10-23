@@ -26,7 +26,7 @@ public class IBasePresenterImpl<V extends IBaseView> implements IBasePresenter<V
     @Override
     public void onAttachView(V view) {
         mViewRef = new WeakReference<V>(view);
-        Logger.t("MVP").d("MVP_ATTACH: view绑定完毕");
+        Logger.t("MVP").d("MVP_ATTACH: view绑定完毕,view类型：" + view);
     }
 
     /**
@@ -38,7 +38,7 @@ public class IBasePresenterImpl<V extends IBaseView> implements IBasePresenter<V
         if (mViewRef != null) {
             mViewRef.clear();
             mViewRef = null;
-            Logger.t("MVP").d("MVP_DETACH: view解绑完毕");
+            Logger.t("MVP").d("MVP_DETACH: view解绑完毕o");
         }
     }
 
@@ -49,7 +49,7 @@ public class IBasePresenterImpl<V extends IBaseView> implements IBasePresenter<V
      * @return
      */
     protected boolean isAttached() {
-        return ObjectUtils.isEmpty(mViewRef) && ObjectUtils.isEmpty(mViewRef.get());
+        return !ObjectUtils.isEmpty(mViewRef) && !ObjectUtils.isEmpty(mViewRef.get());
     }
 
     /**

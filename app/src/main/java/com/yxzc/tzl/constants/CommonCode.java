@@ -1,7 +1,5 @@
 package com.yxzc.tzl.constants;
 
-import android.Manifest;
-
 /**
  * @Project: tzl_android
  * @Package: com.yxzc.tzl.constants
@@ -20,11 +18,11 @@ public interface CommonCode {
      */
     int LAUNCH_DELAY = 200;
     /**
-     * 手机状态权限
+     * 打开相机
      */
-    int READ_PHONE_STATE_CODE = 1;
+    int OPEN_CAMERA = 201;
     /**
-     * 存储权限
+     * 打开相册
      */
-    int READ_EXTERNAL_STORAGE_CODE = 2;
+    int OPEN_ALBUM = 202;
 }

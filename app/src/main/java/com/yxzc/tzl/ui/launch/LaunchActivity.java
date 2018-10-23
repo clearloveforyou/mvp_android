@@ -6,7 +6,7 @@ import android.os.Handler;
 
 import com.tbruyelle.rxpermissions2.Permission;
 import com.yxzc.tzl.base.BaseActivity;
-import com.yxzc.tzl.constants.CommonCode;
+import com.yxzc.tzl.constants.PermissionCode;
 import com.yxzc.tzl.ui.main.Main;
 import com.yxzc.tzl.utils.permission.PermissionUtils;
 
@@ -48,7 +48,7 @@ public class LaunchActivity extends BaseActivity {
      */
     private void requestPermission() {
         mPermissionUtils.initRxPermission(this);
-        mPermissionUtils.requestPermission(CommonCode.READ_EXTERNAL_STORAGE_CODE,
+        mPermissionUtils.requestPermission(PermissionCode.READ_EXTERNAL_STORAGE_CODE,
                 Manifest.permission.READ_EXTERNAL_STORAGE);
     }
 

@@ -15,7 +15,7 @@ public final class SDCardUtils {
     }
 
     //SD是否存在
-    public static boolean ExistSDCard() {
+    public static boolean hasSDCard() {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             return true;
         } else{

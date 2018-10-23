@@ -75,17 +75,6 @@ public class HomeFragment extends BaseMVPFragment<HomePresenter> implements Home
     @OnClick(R.id.test_tv)
     public void onViewClicked() {
         LoginActivity.start(getActivity());
-//        testDialog();
-    }
-
-    /**
-     * 测试Dialog
-     */
-    private void testDialog() {
-        // TODO: 2018/10/8 随时可以删除
-        LoadingDialog loadingDialog = new LoadingDialog(getActivity());
-//        LoadingDialog loadingDialog = new LoadingDialog(getActivity(),0.6f,Gravity.BOTTOM);
-        loadingDialog.showDialog();
     }
 
     /**

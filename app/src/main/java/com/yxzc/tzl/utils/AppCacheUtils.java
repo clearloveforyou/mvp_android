@@ -44,7 +44,7 @@ public class AppCacheUtils {
         //外部缓存
         //directory: /storage/emulated/0/android/data/package/cache
         long dirOutSideSize = 0;
-        if (SDCardUtils.ExistSDCard()) {
+        if (SDCardUtils.hasSDCard()) {
             dirOutSideSize = FileUtils.getDirLength(AppContext.getInstance().getExternalCacheDir());
         }
         //自定义目录

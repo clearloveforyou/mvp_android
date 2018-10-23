@@ -130,4 +130,15 @@ public class TimeUtil {
                 .format(new Date(time));
     }
 
+    /**
+     * 用于文件名
+     *
+     * @param time
+     * @return 20170223_062612
+     */
+    public static String dateFormat4(long time) {
+        return new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault())
+                .format(new Date(time));
+    }
+
 }

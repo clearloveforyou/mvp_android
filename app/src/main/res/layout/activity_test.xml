@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/refresh_test"
     android:layout_width="match_parent"
@@ -18,7 +19,8 @@
             <TextView
                 android:id="@+id/test_event_tv"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/spacing_40"
+                android:gravity="center_vertical"
                 android:text="测试主页面切换，Activity的结束"
                 android:textColor="@color/color_default_tab"
                 android:textSize="@dimen/font_size_16" />
@@ -26,10 +28,40 @@
             <TextView
                 android:id="@+id/test_http_tv"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/spacing_40"
+                android:gravity="center_vertical"
                 android:text="测试HTTP"
                 android:textColor="@color/color_default_tab"
                 android:textSize="@dimen/font_size_16" />
+
+            <TextView
+                android:id="@+id/test_dialog_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/spacing_40"
+                android:gravity="center_vertical"
+                android:text="测试Dialog"
+                android:textColor="@color/color_default_tab"
+                android:textSize="@dimen/font_size_16" />
+
+            <TextView
+                android:id="@+id/test_portrait_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/spacing_40"
+                android:gravity="center_vertical"
+                android:text="更换头像!!!"
+                android:textColor="@color/color_default_tab"
+                android:textSize="@dimen/font_size_16" />
+            <!--半径 是否圆形 缩放 是否背景裁剪圆角-->
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/head_portrait_riv"
+                android:layout_width="@dimen/spacing_70"
+                android:layout_height="@dimen/spacing_70"
+                android:background="@color/colorAccent"
+                android:src="@mipmap/ic_launcher"
+                app:riv_corner_radius="@dimen/spacing_35"
+                app:riv_mutate_background="true"
+                app:riv_oval="true"
+                app:riv_tile_mode="clamp" />
         </LinearLayout>
     </ScrollView>
 
