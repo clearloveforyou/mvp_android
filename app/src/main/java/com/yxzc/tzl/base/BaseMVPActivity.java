@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentActivity;
 import com.lzy.okgo.OkGo;
 import com.orhanobut.logger.Logger;
 
+import butterknife.ButterKnife;
+
 /**
  * @Project: mvp_android
  * @Package: com.yxzc.tzl.base
@@ -25,6 +27,8 @@ public abstract class BaseMVPActivity<P extends IBasePresenter> extends BaseActi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(setLayoutId());
+        ButterKnife.bind(this);
         mActivity = this;
         mPresenter = onCreatePresenter();
         if (mPresenter == null) {
@@ -39,6 +43,13 @@ public abstract class BaseMVPActivity<P extends IBasePresenter> extends BaseActi
         initData();
         initListener();
     }
+
+    /**
+     * 布局ID
+     *
+     * @return
+     */
+    protected abstract int setLayoutId();
 
     /**
      * 抽象方法

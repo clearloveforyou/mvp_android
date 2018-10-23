@@ -27,7 +27,6 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.HashMap;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -70,10 +69,18 @@ public abstract class BaseMainActivity extends BaseMVPActivity<MainPresenter>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base_main);
-        ButterKnife.bind(this);
         EventBus.getDefault().register(this);
         initFragment(savedInstanceState);
+    }
+
+    /**
+     * 布局
+     *
+     * @return
+     */
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_base_main;
     }
 
     /**

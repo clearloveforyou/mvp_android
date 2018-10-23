@@ -71,6 +71,24 @@
                 android:text="测试数据库"
                 android:textColor="@color/color_default_tab"
                 android:textSize="@dimen/font_size_16" />
+
+            <EditText
+                android:id="@+id/test_search_et"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_40"
+                android:gravity="center_vertical"
+                android:hint="搜索"
+                android:textColor="@color/color_default_tab"
+                android:textSize="@dimen/font_size_16" />
+
+            <TextView
+                android:id="@+id/test_search_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/spacing_40"
+                android:gravity="center_vertical"
+                android:text="搜索结果"
+                android:textColor="@color/color_default_tab"
+                android:textSize="@dimen/font_size_16" />
         </LinearLayout>
     </ScrollView>
 
